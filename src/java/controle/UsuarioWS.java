@@ -67,6 +67,10 @@ public class UsuarioWS extends HttpServlet {
                 request.setAttribute("usuario", obj);
                 pagina = "edit.jsp";
                 break;
+            case "sair":
+                request.getSession().invalidate();
+                //response.sendRedirect("../login/admin.jsp?erro=permissao");  
+                pagina = "../login/admin.jsp?erro=permissao";
             default:
                 String filtro = request.getParameter("txtFiltro");
                 if (filtro == null) {

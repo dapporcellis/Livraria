@@ -129,7 +129,7 @@
                   </li>
                   <div class="dropdown-divider"></div>
                   <li class="nav-link">
-                    <a href="../admin/AdminWS?acao=sair" class="nav-item dropdown-item">Sair</a>
+                    <a href="../usuario/UsuarioWS?txtAcao=sair" class="nav-item dropdown-item">Sair</a>
                   </li>
                 </ul>
               </li>

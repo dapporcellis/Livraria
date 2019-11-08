@@ -49,7 +49,7 @@
                                 <img style="height: 60px;" src="../../arquivos/${obj.foto}">                          
                             </td>
                             <td>
-                                <a href="UsuarioWS?txtAcao=edt&txtId=${obj.id}" rel="tooltip" class="btn btn-success btn-sm btn-icon">
+                                <a href="UsuarioWS?txtAcao=edit&txtId=${obj.id}" rel="tooltip" class="btn btn-success btn-sm btn-icon">
                                     <i class="tim-icons icon-pencil"></i>
                                 </a>
                             </td>
