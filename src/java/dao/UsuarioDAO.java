@@ -15,5 +15,14 @@ public class UsuarioDAO extends GenericDAO<Usuario,Long>{
     public UsuarioDAO(){
         super(Usuario.class);
     }
+    public Usuario logar(String login, String senha) {
+        Usuario u;
+        try{
+            u = (Usuario) em.createNamedQuery("Usuario.logar").setParameter("login", login).setParameter("senha", senha).getSingleResult();
+        }catch(Exception e){
+            u = null;
+        }
+        return u;
+    }
     
 }

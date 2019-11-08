@@ -61,7 +61,7 @@
             </a>
           </li>
           <li>
-            <a href="./../admin/AdminWS?acao=list">
+            <a href="./../usuario/UsuarioWS?acao=list">
               <i class="tim-icons icon-tag"></i>
               <p>Admin</p>
             </a>
@@ -113,7 +113,7 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                      <img src="../../arquivos/">
+                      <img src="../../arquivos/${sessionScope['admin'].foto}">
                   </div>
                   <!--<b class="caret d-none d-lg-block d-xl-block"></b>-->
                   <p class="d-lg-none">

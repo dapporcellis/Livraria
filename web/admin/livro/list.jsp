@@ -3,7 +3,7 @@
 
 <div class="card ">
     <div class="card-header">
-        <h4 class="card-title">Autor</h4>
+        <h4 class="card-title">Livro</h4>
     </div>
     <div class="card-body">
         <a class="btn btn-primary btn-round text-center" href="add.jsp">
@@ -20,13 +20,19 @@
                             Nome
                         </th>
                         <th>
-                            Nacionalidade
+                            Lançamento
                         </th>
                         <th>
-                            Data Nascimento
+                            Fotos
                         </th>
                         <th>
-                            Foto
+                            Genero
+                        </th>
+                        <th>
+                            Editora
+                        </th>
+                        <th>
+                            Autores
                         </th>
                         <th>
                             Edita
@@ -41,16 +47,26 @@
                     <tr>
                         <td>${obj.id}</td>
                         <td>${obj.nome}</td>
-                        <td>${obj.nacionalidade}</td>
-                        <td><fmt:formatDate pattern="dd/MM/yyyy" value="${obj.datanasc}"></fmt:formatDate></td>
-                        <td><img src="../../arquivos/${obj.foto}" style="height: 40px;"></td>
+                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${obj.lancamento}"></fmt:formatDate></td>
                         <td>
-                            <a class="btn btn-info btn-fab btn-icon btn-round" href="AutorWS?txtAcao=edit&txtId=${obj.id}">
+                            <img src="../../arquivos/${obj.foto1}" style="height: 40px;">
+                            <img src="../../arquivos/${obj.foto2}" style="height: 40px;">
+                            <img src="../../arquivos/${obj.foto3}" style="height: 40px;">
+                        </td>
+                        <td>${obj.genero.nome}</td>
+                        <td>${obj.editora.nome}</td>
+                        <td>
+                            <c:forEach items="${obj.autores}" var="autor">
+                                ${autor.nome}<br>
+                            </c:forEach>
+                        </td>
+                        <td>
+                            <a class="btn btn-info btn-fab btn-icon btn-round" href="LivroWS?txtAcao=edit&txtId=${obj.id}">
                                 <i class="tim-icons icon-pencil"></i>
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-fab btn-icon btn-round" href="AutorWS?txtAcao=del&txtId=${obj.id}">
+                            <a class="btn btn-primary btn-fab btn-icon btn-round" href="LivroWS?txtAcao=del&txtId=${obj.id}">
                                 <i class="tim-icons icon-trash-simple"></i>
                             </a>
                         </td>

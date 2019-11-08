@@ -10,8 +10,8 @@
             <div class="row">
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
-                        <label>Nome</label>
-                        <input type="text" name="txtNome" required class="form-control" placeholder="Autor" >
+                        <label>Título</label>
+                        <input type="text" name="txtTitulo" required class="form-control" placeholder="Título" >
                     </div>
                 </div>
             </div>
@@ -19,8 +19,10 @@
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
                         <label>Genero</label>
-                        <select class="form-control">
-                            <option>Terror</option>
+                        <select class="form-control" name="txtGenero">
+                            <c:forEach items="${generos}" var="obj">
+                                <option value="${obj.id}">${obj.nome}</option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div>
@@ -29,18 +31,10 @@
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
                         <label>Editora</label>
-                        <select class="form-control">
-                            <option>Editora</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 pr-md-1">
-                    <div class="form-group">
-                        <label>Genero</label>
-                        <select class="form-control">
-                            <option>Terror</option>
+                        <select class="form-control" name="txtEditora">
+                            <c:forEach items="${editoras}" var="obj">
+                                <option value="${obj.id}">${obj.nome}</option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div>
@@ -50,13 +44,23 @@
                     <div class="form-group">
                         <label>Autores</label>
                         <div class="row">
+                            <c:forEach items="${autores}" var="obj">
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" name="txtAutores">
-                                    <label class="custom-control-label">Diego Porcellis</label>
+                                    <input value="${obj.id}" type="checkbox" class="custom-control-input" id="u${obj.id}" name="txtAutores">
+                                    <label class="custom-control-label" for="u${obj.id}">${obj.nome}</label>
                                 </div> 
                             </div>
+                            </c:forEach>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-md-1">
+                    <div class="form-group">
+                        <label>Páginas</label>
+                        <input type="text" name="txtPaginas" required class="form-control" placeholder="`Páginas" >
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
                         <label>Idioma</label>
-                        <input type="text" name="txtIdioma" required class="form-control" placeholder="Autor" >
+                        <input type="text" name="txtIdioma" required class="form-control" placeholder="Idioma" >
                     </div>
                 </div>
             </div>
@@ -88,7 +92,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Sinopse</label>
-                        <textarea rows="4" cols="80" class="form-control" placeholder="Sinopse"></textarea>
+                        <textarea name="txtSinopse" rows="4" cols="80" class="form-control" placeholder="Sinopse"></textarea>
                     </div>
                 </div>
             </div>
@@ -119,7 +123,7 @@
             <button class="btn btn-primary btn-round text-center" type="submit">
                 <i class="tim-icons icon-cloud-upload-94"></i> Salvar
             </button>
-            <a class="btn btn-primary btn-round text-center" href="AutorWS?acao=list">
+            <a class="btn btn-primary btn-round text-center" href="UsuarioWS?acao=list">
                 <i class="tim-icons icon-bullet-list-67"></i> Listar
             </a>
         </form>

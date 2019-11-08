@@ -35,6 +35,14 @@ public class Genero implements Serializable {
     private Long id;
     private String nome;
 
+    public List<Livro> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(List<Livro> livros) {
+        this.livros = livros;
+    }
+
     public Long getId() {
         return id;
     }

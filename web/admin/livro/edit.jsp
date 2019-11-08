@@ -2,12 +2,12 @@
 <%@include file="../cabecalho.jsp" %>
 <div class="card">
     <div class="card-header">
-        <h5 class="title">Edita Autor</h5>
+        <h5 class="title">Edita Livro</h5>
     </div>
     <div class="card-body">
         <!--MODIFICAR PARA ADD-->
         <form action="UploadWS" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="urldestino" value="AutorWS">
+            <input type="hidden" name="urldestino" value="LivroWS">
             <div class="row">
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
@@ -19,36 +19,116 @@
             <div class="row">
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
-                        <label>Nome</label>
-                        <input type="text" name="txtNome" required class="form-control" placeholder="Autor" value="${obj.nome}">
+                        <label>Título</label>
+                        <input type="text" name="txtTitulo" required class="form-control" placeholder="Título" >
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
-                        <label>Nacionalidade</label>
-                        <input type="text" name="txtNacionalidade" required class="form-control" placeholder="Nacionalidade" value="${obj.nacionalidade}" >
+                        <label>Genero</label>
+                        <select class="form-control" name="txtGenero">
+                            <c:forEach items="${generos}" var="obj">
+                                <option value="${obj.id}">${obj.nome}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 pr-md-1">
                     <div class="form-group">
-                        <label>Data de nascimento</label>
-                        <input type="date" name="txtData" required class="form-control" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${obj.datanasc}"/>" >
+                        <label>Editora</label>
+                        <select class="form-control" name="txtEditora">
+                            <c:forEach items="${editoras}" var="obj">
+                                <option value="${obj.id}">${obj.nome}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-md-1">
+                    <div class="form-group">
+                        <label>Autores</label>
+                        <div class="row">
+                            <c:forEach items="${autores}" var="obj">
+                            <div class="col-md-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input value="${obj.id}" type="checkbox" class="custom-control-input" id="u${obj.id}" name="txtAutores">
+                                    <label class="custom-control-label" for="u${obj.id}">${obj.nome}</label>
+                                </div> 
+                            </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-md-1">
+                    <div class="form-group">
+                        <label>Páginas</label>
+                        <input type="text" name="txtPaginas" required class="form-control" placeholder="`Páginas" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-md-1">
+                    <div class="form-group">
+                        <label>ISBN</label>
+                        <input type="text" name="txtIsbn" required class="form-control" placeholder="ISBN" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-md-1">
+                    <div class="form-group">
+                        <label>Idioma</label>
+                        <input type="text" name="txtIdioma" required class="form-control" placeholder="Idioma" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-md-1">
+                    <div class="form-group">
+                        <label>Data de Lançamento</label>
+                        <input type="date" name="txtData" required class="form-control" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Sinopse</label>
+                        <textarea name="txtSinopse" rows="4" cols="80" class="form-control" placeholder="Sinopse"></textarea>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group-file">
-                        <label for="file">Foto</label>
-                        <input type="file" name="txtFoto" required class="form-control form-control-file">
+                        <label for="file">Foto 1</label>
+                        <input type="file" name="txtFoto1" required class="form-control form-control-file">
                     </div>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group-file">
+                        <label for="file">Foto 2</label>
+                        <input type="file" name="txtFoto2" required class="form-control form-control-file">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group-file">
+                        <label for="file">Foto 3</label>
+                        <input type="file" name="txtFoto3" required class="form-control form-control-file">
+                    </div>
+                </div>
+            </div>
             <button class="btn btn-primary btn-round text-center" type="submit">
                 <i class="tim-icons icon-cloud-upload-94"></i> Salvar
             </button>
